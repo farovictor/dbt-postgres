@@ -1,6 +1,6 @@
-# To install dbt-postgres in Linux
+# Installation instructions
 
-Dependency:
+## Dependency installation
 1. Install hatch on your machine or environment. [Installation Guide](https://hatch.pypa.io/latest/install/)
 ```bash
   # Installing using pip
@@ -10,7 +10,7 @@ Dependency:
   hatch --version
 ```
 
-# Building Package
+## Building Package
 1. Clone this repo
 ```bash
   git clone https://github.com/farovictor/dbt-postgres.git
@@ -27,7 +27,8 @@ Dependency:
 ```
 
 
-3. Move the dependency to your project. Instead of installing from a repo, point the installation to the wheel file.
+## Add to your project
+1. Move the dependency to your project. Instead of installing from a repo, point the installation to the wheel file.
 ```bash
   # e.g.: Pip installation
   pip install dbt_postgres-1.9.0a1-py3-none-any.whl
@@ -42,4 +43,5 @@ Adjust it to whatever is your package manager.
 
 This repo is just to provide a workaround to the issue with psycopg2 installation.
 Please refer to the issue link to check when the issue is resolved and keep an up-to-date version of the package.
-Issue: [Issue-96](https://github.com/dbt-labs/dbt-postgres/issues/96)
+
+Link: [Issue-96](https://github.com/dbt-labs/dbt-postgres/issues/96)
