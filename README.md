@@ -1,36 +1,45 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/dbt-labs/dbt/ec7dee39f793aa4f7dd3dae37282cc87664813e4/etc/dbt-logo-full.svg" alt="dbt logo" width="500"/>
-</p>
-<p align="center">
-  <a href="https://github.com/dbt-labs/dbt-core/actions/workflows/main.yml">
-    <img src="https://github.com/dbt-labs/dbt-core/actions/workflows/main.yml/badge.svg?event=push" alt="CI Badge"/>
-  </a>
-</p>
+# To install dbt-postgres in Linux
 
-**[dbt](https://www.getdbt.com/)** enables data analysts and engineers to transform their data using the same practices that software engineers use to build applications.
+Dependency:
+1. Install hatch on your machine or environment. [Installation Guide](https://hatch.pypa.io/latest/install/)
+```bash
+  # Installing using pip
+  pip install hatch
 
-dbt is the T in ELT. Organize, cleanse, denormalize, filter, rename, and pre-aggregate the raw data in your warehouse so that it's ready for analysis.
+  # check your version
+  hatch --version
+```
 
-## dbt-postgres
+# Building Package
+1. Clone this repo
+```bash
+  git clone https://github.com/farovictor/dbt-postgres.git
+```
 
-The `dbt-postgres` package contains all of the code enabling dbt to work with a Postgres database. For
-more information on using dbt with Postgres, consult [the docs](https://docs.getdbt.com/docs/profile-postgres).
 
-## Getting started
+2. Build the thing
+```bash
+  # Go to project folder
+  cd dbt-postgres
 
-- [Install dbt](https://docs.getdbt.com/docs/installation)
-- Read the [introduction](https://docs.getdbt.com/docs/introduction/) and [viewpoint](https://docs.getdbt.com/docs/about/viewpoint/)
+  # Build wheel file
+  hatch build
+```
 
-## Join the dbt Community
 
-- Be part of the conversation in the [dbt Community Slack](http://community.getdbt.com/)
-- Read more on the [dbt Community Discourse](https://discourse.getdbt.com)
+3. Move the dependency to your project. Instead of installing from a repo, point the installation to the wheel file.
+```bash
+  # e.g.: Pip installation
+  pip install dbt_postgres-1.9.0a1-py3-none-any.whl
 
-## Reporting bugs and contributing code
+  # e.g.: Poetry installation
+  poetry add dbt_postgres-1.9.0a1-py3-none-any.whl
+```
 
-- Want to report a bug or request a feature? Let us know on [Slack](http://community.getdbt.com/), or open [an issue](https://github.com/dbt-labs/dbt-postgres/issues/new)
-- Want to help us build dbt? Check out the [Contributing Guide](https://github.com/dbt-labs/dbt-postgres/blob/main/CONTRIBUTING.md)
+Adjust it to whatever is your package manager.
 
-## Code of Conduct
+# CAVEAT
 
-Everyone interacting in the dbt project's codebases, issue trackers, chat rooms, and mailing lists is expected to follow the [dbt Code of Conduct](https://community.getdbt.com/code-of-conduct).
+This repo is just to provide a workaround to the issue with psycopg2 installation.
+Please refer to the issue link to check when the issue is resolved and keep an up-to-date version of the package.
+Issue: [Issue-96](https://github.com/dbt-labs/dbt-postgres/issues/96)
